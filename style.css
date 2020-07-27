@@ -1,0 +1,43 @@
+.row_style {
+    margin-top: 70px;
+}
+
+.buttonbuy {
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: green;
+}
+
+#footer {
+    background-color: black;
+    color: white;
+}
+
+#footer-c {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-top: solid 1px;
+    margin-top: 30px;
+}
+
+.success {
+    margin-top: 80px;
+    padding: 100px;
+}
+
+#about_a {
+    color: black;
+}
