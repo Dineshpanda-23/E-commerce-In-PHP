@@ -1,13 +1,8 @@
-<?php require 'nav.php';
-
-?>
-
+<?php require 'nav.php';?>
 <?php
-
 $con = mysqli_connect("localhost", "root", "", "ecommerce") or die(mysqli_error($con));
 $login_query = "SELECT * FROM product ";
 $login_submit = mysqli_query($con, $login_query) or die(mysqli_error($con));
-
 if (isset($_POST['remove'])) {
     if ($_GET['action'] == 'remove') {
         foreach ($_SESSION['cart'] as $key => $value) {
@@ -19,7 +14,6 @@ if (isset($_POST['remove'])) {
         }
     }
 }
-
 
 ?>
 <main class="page">
@@ -106,7 +100,7 @@ if (isset($_POST['remove'])) {
             ?>
 
 
-				 			</div>
+</div>
 			 			</div>
 			 			<div class="col-md-12 col-lg-4">
 			 				<div class="summary">
@@ -132,16 +126,4 @@ if (isset($_POST['remove'])) {
 	 		</div>
 		</section>
 	</main>
-
-
-
-
-
-
-
-
-
-
-
-
 <?php require 'footer.php'; ?>

@@ -21,8 +21,7 @@
                                                echo '<li><a href="signup.php">SignUp</a></li>';
 
                                             }
-                                       ?>
-                                      
+                                       ?>                                     
                                  </ul>
                              </div>
                              <div class="col-md-4">
@@ -34,8 +33,7 @@
                              </div>
                          </div>
                            <div id="footer-c"><p>Created By Prince Vishwakarma</p></div>
-    </div>
-        
+    </div>       
 </div>
 </body>
 </html>

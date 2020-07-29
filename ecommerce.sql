@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 28, 2020 at 07:53 AM
+-- Generation Time: Jul 29, 2020 at 06:44 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -25,13 +25,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Table structure for table `contact`
 --
 
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE IF NOT EXISTS `order` (
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE IF NOT EXISTS `contact` (
+  `contact_id` int(200) NOT NULL AUTO_INCREMENT,
+  `con_name` varchar(200) NOT NULL,
+  `con_email` varchar(200) NOT NULL,
+  `con_mass` text NOT NULL,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -47,18 +51,7 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   PRIMARY KEY (`order_id`),
   KEY `product_id` (`product_id`,`user_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `order_product`
---
-
-INSERT INTO `order_product` (`order_id`, `product_id`, `user_id`) VALUES
-(78, 1, 14),
-(79, 1, 14),
-(80, 2, 14),
-(81, 3, 14),
-(82, 4, 14);
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -82,10 +75,10 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`pdName`, `pdImg`, `pdDisc`, `pdPrice`, `pdCatg`, `pdID`) VALUES
-('Nokia Max Pro', 'product_img/mobile.png', 'Nokia Max Pro(Glacial Green 6GB RAM+128GB Storage)', 50000, 'Mobile', 1),
-('Samsung Galaxy S10 ', 'product_img/s10.jpg', 'Samsung Galaxy S10 (Prism Blue, 8GB RAM, 128GB Storage)', 49999, 'Mobile', 2),
-('OnePlus 8 Pro ', 'product_img/18.jpg', 'OnePlus 8 Pro (Glacial Green 8GB RAM+128GB Storage)', 54999, 'Mobile', 3),
-('Apple iPhone 11 Pro Max', 'product_img/apple.jpg', '\r\nApple iPhone 11 Pro Max (64GB) - Midnight Green', 117100, 'Mobile', 4);
+('Nokia Max Pro', 'mobile.png', 'Nokia Max Pro(Glacial Green 6GB RAM+128GB Storage)', 50000, 'Mobile', 1),
+('Samsung Galaxy S10 ', 's10.jpg', 'Samsung Galaxy S10 (Prism Blue, 8GB RAM, 128GB Storage)', 49999, 'Mobile', 2),
+('OnePlus 8 Pro ', '18.jpg', 'OnePlus 8 Pro (Glacial Green 8GB RAM+128GB Storage)', 54999, 'Mobile', 3),
+('Apple iPhone 11 Pro Max', 'apple.jpg', '\r\nApple iPhone 11 Pro Max (64GB) - Midnight Green', 117100, 'Mobile', 4);
 
 -- --------------------------------------------------------
 
@@ -106,16 +99,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `userState` varchar(100) NOT NULL,
   `userCountry` varchar(50) NOT NULL,
   `userZip` varchar(20) NOT NULL,
-  `userOrder` int(200) DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`userID`, `userFirstName`, `userLastName`, `userMobile`, `userEmail`, `userPassword`, `userAddress`, `userCity`, `userState`, `userCountry`, `userZip`, `userOrder`) VALUES
-(14, 'Prince', 'vishwakarma', '08756599427', 'princevworld@gmail.com', '4eae18cf9e54a0f62b44176d074cbe2f', 'gorakhpur', 'gorakhpur', 'Uttar Pradesh', 'India', '273209', NULL);
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Constraints for dumped tables
@@ -127,12 +112,6 @@ INSERT INTO `user` (`userID`, `userFirstName`, `userLastName`, `userMobile`, `us
 ALTER TABLE `order_product`
   ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`pdID`),
   ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`userID`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userOrder`) REFERENCES `order_product` (`order_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

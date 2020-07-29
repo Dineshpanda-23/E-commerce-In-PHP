@@ -5,7 +5,6 @@ if (isset($_SESSION['id'])) {
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -18,9 +17,7 @@ if (isset($_SESSION['id'])) {
   <title>E-Commerce</title>
   <link href="style.css" rel="stylesheet">
   <link rel="stylesheet" href="shopping-cart.css">
-
 </head>
-
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -30,12 +27,11 @@ if (isset($_SESSION['id'])) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" style="font-family: 'Lobster', cursive;" href="#">E-Commerce</a>
+        <a href="index.php" class="navbar-brand" style="font-family: 'Lobster', cursive;" href="#">E-Commerce</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-
           <?php if (isset($_SESSION['id'])) {
             if (isset($_SESSION['cart'])) {
               $count  = count($_SESSION['cart']);
@@ -57,7 +53,6 @@ if (isset($_SESSION['id'])) {
       </div>
     </div>
   </nav>
-
   <!-- ----LOGIN FORM --------------- -->
   <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -73,15 +68,11 @@ if (isset($_SESSION['id'])) {
             <div class="md-form mb-5">
               <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
               <input type="email" id="defaultForm-email" class="form-control validate" name="email" require>
-
             </div>
-
             <div class="md-form mb-4">
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
               <input type="password" id="defaultForm-pass" class="form-control validate" name="pass" require>
-
             </div>
-
           </div>
           <div class="modal-footer d-flex justify-content-center">
             <button type="submit" class="btn btn-primary buttonbuy">Login</button>

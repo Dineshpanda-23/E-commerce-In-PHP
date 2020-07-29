@@ -1,7 +1,5 @@
 <?php require 'nav.php';?>
-
 <div class="container row_style">
-
         <div class="row top_margin">
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="panel panel-primary">
@@ -48,7 +46,6 @@
                                 <label for="Zip">ZIP</label>
                                 <input type="number" class="form-control" id="Zip" name="userZip" require>
                             </div>
-
                             <button type="submit" class="btn btn-primary buttonbuy" value=”registration_submit”>Submit</button>
                         </form>
                     </div>
